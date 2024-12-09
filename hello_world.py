@@ -1,15 +1,21 @@
+import tkinter as tk    
 
-import tkinter as tk  # Import the tkinter library
+window=tk.Tk()
+window.title("Python GUI with Tkinter - Layouts")
 
-# Create a new window
-window = tk.Tk()
+#create widgets here
 
-# Create a label with the text "Hello, World!"
-label = tk.Label(window, text="Hello, World!")
+text1 = tk.Label(window, text="this application tests simple layout")
+button1 = tk.Button(text="Button 1", fg="green")
+button2 = tk.Button(text="Button 2", fg="red")
+button3 = tk.Button(text="Button 3", fg = "blue")
 
-# Add the label to the window
-label.pack()
+#pack widgets
+
+text1.pack()
+button1.pack()
+button2.pack()
+button3.pack()
 
 # Start the main event loop
 window.mainloop()
-
