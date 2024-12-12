@@ -1,54 +1,32 @@
-import tkinter as tk    
+import tkinter as tk   
+
+# Define button actions
+
+def button1_action():
+    text = entry_text.get()
+    display_text = "Hello " + text + "! How are you?"
+    text1.config(text=display_text) 
+    button1.config(fg="purple")
+    button1.config(bg="red") 
 
 
 # Create the main window
 
-window=tk.Tk()
-window.title("Exercise 1")
-
-#create frames here
-
-top_frame = tk.Frame(window)
-big_frame = tk.Frame(window)
-small_frame1 = tk.Frame(big_frame)
-#small_frame2 = tk.Frame(big_frame)
-
-#pack frames here
-
-top_frame.pack()
-big_frame.pack()
-small_frame1.pack(side= tk.LEFT)
-#small_frame2.pack(side= tk.BOTTOM)    
+window = tk.Tk()
+window.title("Clicking application")
+window.geometry("300x350")
 
 #create widgets here
 
-text1 = tk.Label(top_frame, text="this application demostrates frame layout")
-button1 = tk.Button(small_frame1, text="Button 1", fg="green")
-button2 = tk.Button(small_frame1, text="Button 2", fg="red")
-button3 = tk.Button(small_frame1, text="Button 3", fg = "blue")
-button4 = tk.Button(small_frame1, text="Button 4", fg = "blue")
-text2 = tk.Label(big_frame, text="this is a big frame")
-#button5 = tk.Button(middle_frame2, text="Button 5", fg = "green")
-#button6 = tk.Button(middle_frame2, text="Button 6", fg = "red")
-#button7 = tk.Button(bottom_frame, text="Button 7", fg = "blue")
-#button8 = tk.Button(bottom_frame, text="Button 8", fg = "blue")
-#button9 = tk.Button(bottom_frame, text="Button 9", fg = "blue")
-
-
+text1 = tk.Label(window, text="Enter your name: ")
+button1 = tk.Button(window, text="Button 1", fg="green", command=button1_action)
+entry_text = tk.Entry(window)   
 #pack widgets
 
+button1.pack()
 text1.pack()
-button1.pack(side= tk.TOP)
-button2.pack(side= tk.LEFT)
-button3.pack(side= tk.LEFT)
-button4.pack(side= tk.LEFT)
-text2.pack()
-#button5.pack(side= tk.LEFT)
-#button6.pack(side= tk.LEFT)
-#button7.pack(side= tk.LEFT)
-#button8.pack(side= tk.LEFT)
-#button9.pack(side= tk.LEFT)
-
+entry_text.pack()
 
 # Start the main event loop
+
 window.mainloop()
