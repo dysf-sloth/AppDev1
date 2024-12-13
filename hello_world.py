@@ -1,47 +1,37 @@
 import tkinter as tk   
 
-# Define button actions
-
-def button1_action():
-    text = name_entry.get() + surname_entry.get()
-    display_text = "Welcome " + text + "!! You have registered."
-    text1.config(text=display_text) 
-
-
-
 # Create the main window
 
 window = tk.Tk()
-window.title("Clicking application")
-window.geometry("300x150")
+window.title("python GUI - grid layout")
+window.geometry("300x350")
 
-#create frames here
-
-top_frame = tk.Frame(window)
-middle_frame = tk.Frame(window)
-
-#pack frames here
-
-top_frame.pack(fill="both")
-middle_frame.pack(fill="both")
 
 #create widgets here
 
-name_label = tk.Label(top_frame, text="Name")
-name_entry = tk.Entry(top_frame)
-surname_label = tk.Label(middle_frame, text="Surname")
-surname_entry = tk.Entry(middle_frame)
-button1 = tk.Button(window, text="Register", command=button1_action)
-text1 = tk.Label(window, text="") 
+username_label = tk.Label(window, text="Username")
+username_entry = tk.Entry(window)
+password_label = tk.Label(window, text="Password")
+password_entry = tk.Entry(window)
+button1 = tk.Button(window, text="Submit")
+button2 = tk.Button(window, text="Clear")
+button3 = tk.Button(window, text="Close")
 
-#pack widgets
 
-button1.pack()
-text1.pack()
-name_entry.pack(side="right", fill="both", expand=True)
-name_label.pack(side="left")
-surname_entry.pack(side="right", fill="both", expand=True)
-surname_label.pack(side="left")
+#grid layout for widgets
+
+username_label.grid(row=0, column=0)
+username_entry.grid(row=0, column=1)
+password_label.grid(row=1, column=0)
+password_entry.grid(row=1, column=1)
+button1.grid(row=2, column=0)
+button2.grid(row=2, column=1)
+button3.grid(row=2, column=2)
+
+# using grid_slaves() method
+
+for widget in window.grid_slaves(row=2):
+    widget.grid(ipadx=20)
 
 # Start the main event loop
 
